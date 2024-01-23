@@ -191,9 +191,9 @@ function restrictListProducts(prods, restriction) {
 		}
 	}
     for (let k=0; k<prods.length; k+=1){
-        product_concat.push(product_names[k] + "  $" + product_price[k])
+            product_concat.push(product_names[k] + "  $" + product_price[k]);
     }
-	return product_concat;
+	return product_concat ;
 }
 
 // Calculate the total price of items, with received parameter being a list of products
