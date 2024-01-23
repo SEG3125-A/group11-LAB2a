@@ -1,9 +1,8 @@
 function openInfo(evt, tabName) {
 
-	// Get all elements with class="tabcontent" and hide them
-	tabcontent = document.getElementsByClassName("tabcontent");
-	for (i = 0; i < tabcontent.length; i++) {
-		tabcontent[i].style.display = "none";
+	content = document.getElementsByClassName("content");
+	for (i = 0; i < content.length; i++) {
+		content[i].style.display = "none";
 	}
 
 	// Get all elements with class="tablinks" and remove the class "active"
@@ -164,18 +163,37 @@ var products = [
 
 function restrictListProducts(prods, restriction) {
 	let product_names = [];
+    let product_price = [];
+    let product_concat = [];
 	for (let i=0; i<prods.length; i+=1) {
 		if ((restriction == "Vegetarian") && (prods[i].vegetarian == true)){
 			product_names.push(prods[i].name);
+            product_price.push(prods[i].price);
 		}
 		else if ((restriction == "GlutenFree") && (prods[i].glutenFree == true)){
 			product_names.push(prods[i].name);
+            product_price.push(prods[i].price);
 		}
 		else if (restriction == "None"){
 			product_names.push(prods[i].name);
+            product_price.push(prods[i].price);
 		}
 	}
-	return product_names;
+    for (let j=0; j<prods.length; j+=1) {
+		if ((restriction == "Vegetarian") && (prods[j].vegetarian == true)){
+            product_price.push(prods[j].price);
+		}
+		else if ((restriction == "GlutenFree") && (prods[j].glutenFree == true)){
+            product_price.push(prods[j].price);
+		}
+		else if (restriction == "None"){
+            product_price.push(prods[j].price);
+		}
+	}
+    for (let k=0; k<prods.length; k+=1){
+        product_concat.push(product_names[k] + "  $" + product_price[k])
+    }
+	return product_concat;
 }
 
 // Calculate the total price of items, with received parameter being a list of products
