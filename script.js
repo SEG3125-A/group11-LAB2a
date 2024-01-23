@@ -83,7 +83,7 @@ function selectedItems(){
 		
 	// add paragraph and total price
 	c.appendChild(para);
-	c.appendChild(document.createTextNode("Total Price is " + getTotalPrice(chosenProducts)));
+	c.appendChild(document.createTextNode("Total Price is  $" + getTotalPrice(chosenProducts)));
 		
 }
 
@@ -199,10 +199,10 @@ function restrictListProducts(prods, restriction) {
 // Calculate the total price of items, with received parameter being a list of products
 function getTotalPrice(chosenProducts) {
 	totalPrice = 0;
-	for (let i=0; i<products.length; i+=1) {
-		if (chosenProducts.indexOf(products[i].name) > -1){
-			totalPrice += products[i].price;
-		}
+	for (let i=0; i<chosenProducts.length; i+=1) {
+		
+			totalPrice += chosenProducts[i].price;
+		
 	}
 	return totalPrice;
 }
