@@ -165,6 +165,7 @@ function restrictListProducts(prods, restriction) {
 	let product_names = [];
     let product_price = [];
     let product_concat = [];
+	
 	for (let i=0; i<prods.length; i+=1) {
 		if ((restriction == "Vegetarian") && (prods[i].vegetarian == true)){
 			product_names.push(prods[i].name);
