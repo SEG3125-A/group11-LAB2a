@@ -69,7 +69,7 @@ function selectedItems(){
 	
 	// build list of selected item
 	var para = document.createElement("P");
-	para.innerHTML = "You selected : ";
+	para.innerHTML = "<strong>You selected : </strong>";
 	para.appendChild(document.createElement("br"));
 	for (i = 0; i < ele.length; i++) { 
 		if (ele[i].checked) {
