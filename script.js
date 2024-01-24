@@ -88,41 +88,6 @@ function selectedItems(){
 // given restrictions provided, make a reduced list of products
 // prices should be included in this list, as well as a sort based on price
 
-function restrictListProducts(prods, restriction) {
-	let product_names = [];
-    let product_price = [];
-    let product_concat = [];
-	
-	for (let i=0; i<products.length; i+=1) {
-		if ((restriction == "Vegetarian") && (prods[i].vegetarian == true)){
-			product_names.push(prods[i].name);
-            product_price.push(prods[i].price);
-		}
-		else if ((restriction == "GlutenFree") && (prods[i].glutenFree == true)){
-			product_names.push(prods[i].name);
-            product_price.push(prods[i].price);
-		}
-		else if (restriction == "None"){
-			product_names.push(prods[i].name);
-            product_price.push(prods[i].price);
-		}
-	}
-    for (let j=0; j<products.length; j+=1) {
-		if ((restriction == "Vegetarian") && (prods[j].vegetarian == true)){
-            product_price.push(prods[j].price);
-		}
-		else if ((restriction == "GlutenFree") && (prods[j].glutenFree == true)){
-            product_price.push(prods[j].price);
-		}
-		else if (restriction == "None"){
-            product_price.push(prods[j].price);
-		}
-	}
-    for (let k=0; k<15; k+=1){
-            product_concat.push(product_names[k] + "  $" + product_price[k]);
-    }
-	return product_concat ;
-}
 
 // Calculate the total price of items, with received parameter being a list of products
 function getTotalPrice(chosenProducts) {
@@ -137,222 +102,322 @@ function getTotalPrice(chosenProducts) {
 
 
 //-----------Product List------------
+Products
 
 var products = [
-	{
-		name: "broccoli",
-		vegetarian: true,
-		glutenFree: true,
-		price: 1.99
-	},
-	{
-		name: "rye bread",
-		vegetarian: true,
-		glutenFree: false,
-		price: 2.35
-	},
-	{
-		name: "salmon",
-		vegetarian: false,
-		glutenFree: true,
-		price: 10.00
-	},
     {
-		name: "raw milk",
-		vegetarian: false,
-		glutenFree: true,
-		price: 5.50
-	},
+        name: "broccoli",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 1.99
+    },
     {
-		name: "steak",
-		vegetarian: false,
-		glutenFree: true,
-		price: 30.00
-	},
+        name: "rye bread",
+        vegetarian: true,
+        organic: false,
+        glutenFree: false,
+        price: 2.35
+    },
     {
-		name: "butter",
-		vegetarian: false,
-		glutenFree: true,
-		price: 8.25
-	},
+        name: "salmon",
+        vegetarian: false,
+        organic: false,
+        glutenFree: true,
+        price: 10.00
+    },
     {
-		name: "herring",
-		vegetarian: false,
-		glutenFree: true,
-		price: 5.10
-	},
+        name: "raw milk",
+        vegetarian: false,
+        organic: true,
+        glutenFree: true,
+        price: 5.50
+    },
     {
-		name: "beans",
-		vegetarian: true,
-		glutenFree: true,
-		price: 3.50
-	},
+        name: "steak",
+        vegetarian: false,
+        organic: false,
+        glutenFree: true,
+        price: 30.00
+    },
     {
-		name: "cabbage",
-		vegetarian: true,
-		glutenFree: true,
-		price: 4.30
-	},
+        name: "butter",
+        vegetarian: false,
+        organic: false,
+        glutenFree: true,
+        price: 8.25
+    },
     {
-		name: "spaghetti",
-		vegetarian: true,
-		glutenFree: false,
-		price: 10.00
-	},
+        name: "herring",
+        vegetarian: false,
+        organic: false,
+        glutenFree: true,
+        price: 5.10
+    },
     {
-		name: "tomatoes",
-		vegetarian: true,
-		glutenFree: true,
-		price: 10.00
-	},
+        name: "beans",
+        vegetarian: true,
+        organic: false,
+        glutenFree: true,
+        price: 3.50
+    },
     {
-		name: "carrots",
-		vegetarian: true,
-		glutenFree: true,
-		price: 2.50
-	},
+        name: "cabbage",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 4.30
+    },
     {
-		name: "potatoes",
-		vegetarian: true,
-		glutenFree: true,
-		price: 3.00
-	},
+        name: "spaghetti",
+        vegetarian: true,
+        organic: false,
+        glutenFree: false,
+        price: 10.00
+    },
     {
-		name: "chicken",
-		vegetarian: false,
-		glutenFree: true,
-		price: 15.00
-	},
+        name: "tomatoes",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 10.00
+    },
     {
-		name: "eggs",
-		vegetarian: true,
-		glutenFree: true,
-		price: 4.00
-	},
+        name: "carrots",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 2.50
+    },
     {
-		name: "cheese",
-		vegetarian: true,
-		glutenFree: true,
-		price: 6.75
-	},
+        name: "potatoes",
+        vegetarian: true,
+        organic: false,
+        glutenFree: true,
+        price: 3.00
+    },
     {
-		name: "onions",
-		vegetarian: true,
-		glutenFree: true,
-		price: 2.20
-	},
+        name: "chicken",
+        vegetarian: false,
+        organic: false,
+        glutenFree: true,
+        price: 15.00
+    },
     {
-		name: "lettuce",
-		vegetarian: true,
-		glutenFree: true,
-		price: 3.75
-	},
+        name: "eggs",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 4.00
+    },
     {
-		name: "apples",
-		vegetarian: true,
-		glutenFree: true,
-		price: 5.00
-	},
+        name: "cheese",
+        vegetarian: true,
+        organic: false,
+        glutenFree: true,
+        price: 6.75
+    },
     {
-		name: "oranges",
-		vegetarian: true,
-		glutenFree: true,
-		price: 4.50
-	},
+        name: "onions",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 2.20
+    },
     {
-		name: "peanuts",
-		vegetarian: true,
-		glutenFree: true,
-		price: 7.80
-	},
+        name: "lettuce",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 3.75
+    },
     {
-		name: "almonds",
-		vegetarian: true,
-		glutenFree: true,
-		price: 9.25
-	},
+        name: "apples",
+        vegetarian: true,
+        organic: false,
+        glutenFree: true,
+        price: 5.00
+    },
     {
-		name: "rice",
-		vegetarian: true,
-		glutenFree: true,
-		price: 6.00
-	},
+        name: "oranges",
+        vegetarian: true,
+        organic: false,
+        glutenFree: true,
+        price: 4.50
+    },
     {
-		name: "yogurt",
-		vegetarian: true,
-		glutenFree: true,
-		price: 4.75
-	},
+        name: "peanuts",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 7.80
+    },
     {
-		name: "mushrooms",
-		vegetarian: true,
-		glutenFree: true,
-		price: 3.90
-	},
+        name: "almonds",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 9.25
+    },
     {
-		name: "bell peppers",
-		vegetarian: true,
-		glutenFree: true,
-		price: 4.20
-	},
+        name: "rice",
+        vegetarian: true,
+        organic: false,
+        glutenFree: true,
+        price: 6.00
+    },
     {
-		name: "avocado",
-		vegetarian: true,
-		glutenFree: true,
-		price: 6.50
-	},
+        name: "yogurt",
+        vegetarian: true,
+        organic: false,
+        glutenFree: true,
+        price: 4.75
+    },
     {
-		name: "sushi",
-		vegetarian: false,
-		glutenFree: false,
-		price: 20.00
-	},
+        name: "mushrooms",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 3.90
+    },
     {
-		name: "chocolate",
-		vegetarian: true,
-		glutenFree: false,
-		price: 8.50
-	},
+        name: "bell peppers",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 4.20
+    },
     {
-		name: "quinoa",
-		vegetarian: true,
-		glutenFree: true,
-		price: 9.80
-	},
+        name: "avocado",
+        vegetarian: true,
+        organic: false,
+        glutenFree: true,
+        price: 6.50
+    },
     {
-		name: "black beans",
-		vegetarian: true,
-		glutenFree: true,
-		price: 2.80
-	},
+        name: "sushi",
+        vegetarian: false,
+        organic: false,
+        glutenFree: false,
+        price: 20.00
+    },
     {
-		name: "honey",
-		vegetarian: true,
-		glutenFree: true,
-		price: 7.00
-	},
+        name: "chocolate",
+        vegetarian: true,
+        organic: false,
+        glutenFree: false,
+        price: 8.50
+    },
     {
-		name: "turkey",
-		vegetarian: false,
-		glutenFree: true,
-		price: 18.50
-	},
+        name: "quinoa",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 9.80
+    },
     {
-		name: "sweet potatoes",
-		vegetarian: true,
-		glutenFree: true,
-		price: 3.50
-	},
+        name: "black beans",
+        vegetarian: true,
+        organic: false,
+        glutenFree: true,
+        price: 2.80
+    },
     {
-		name: "blueberries",
-		vegetarian: true,
-		glutenFree: true,
-		price: 5.75
-	},
+        name: "honey",
+        vegetarian: true,
+        organic: false,
+        glutenFree: true,
+        price: 7.00
+    },
     {
-		name: "olive oil",
-		vegetarian: true,
-		glutenFree: true,
-		price: 12.00
-	}
-];
+        name: "turkey",
+        vegetarian: false,
+        organic: false,
+        glutenFree: true,
+        price: 18.50
+    },
+    {
+        name: "sweet potatoes",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 3.50
+    },
+    {
+        name: "blueberries",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 5.75
+    },
+    {
+        name: "olive oil",
+        vegetarian: true,
+        organic: false,
+        glutenFree: true,
+        price: 12.00
+    },
+    {
+        name: "tofu",
+        vegetarian: true,
+        organic: false,
+        glutenFree: true,
+        price: 7.50
+    },
+    {
+        name: "spinach",
+        vegetarian: true,
+        organic: true,
+        glutenFree: true,
+        price: 3.25
+    },
+    {
+        name: "pepperoni",
+        vegetarian: false,
+        glutenFree: false,
+        price: 5.00
+    },
+    {
+        name: "shrimp",
+        vegetarian: false,
+        organic: true,
+        glutenFree: true,
+        price: 14.00
+    },
+    {
+        name: "milk chocolate",
+        vegetarian: true,
+        organic: false,
+        glutenFree: false,
+        price: 6.80
+    },
+    {
+        name: "sunflower seeds",
+        vegetarian: true,
+        organic: false,
+        glutenFree: true,
+        price: 4.50
+    },
+    {
+        name: "sausage",
+        vegetarian: false,
+        organic: false,
+        glutenFree: false,
+        price: 9.00
+    },
+    {
+        name: "breaded chicken",
+        vegetarian: false,
+        organic: false,
+        glutenFree: false,
+        price: 12.50
+    },
+    {
+        name: "cereal",
+        vegetarian: true,
+        organic: false,
+        glutenFree: false,
+        price: 5.20
+    }
+]
+
