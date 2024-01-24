@@ -88,6 +88,41 @@ function selectedItems(){
 // given restrictions provided, make a reduced list of products
 // prices should be included in this list, as well as a sort based on price
 
+function restrictListProducts(prods, restriction) {
+	let product_names = [];
+    let product_price = [];
+    let product_concat = [];
+	
+	for (let i=0; i<products.length; i+=1) {
+		if ((restriction == "Vegetarian") && (prods[i].vegetarian == true)){
+			product_names.push(prods[i].name);
+            product_price.push(prods[i].price);
+		}
+		else if ((restriction == "GlutenFree") && (prods[i].glutenFree == true)){
+			product_names.push(prods[i].name);
+            product_price.push(prods[i].price);
+		}
+		else if (restriction == "None"){
+			product_names.push(prods[i].name);
+            product_price.push(prods[i].price);
+		}
+	}
+    for (let j=0; j<products.length; j+=1) {
+		if ((restriction == "Vegetarian") && (prods[j].vegetarian == true)){
+            product_price.push(prods[j].price);
+		}
+		else if ((restriction == "GlutenFree") && (prods[j].glutenFree == true)){
+            product_price.push(prods[j].price);
+		}
+		else if (restriction == "None"){
+            product_price.push(prods[j].price);
+		}
+	}
+    for (let k=0; k<15; k+=1){
+            product_concat.push(product_names[k] + "  $" + product_price[k]);
+    }
+	return product_concat ;
+}
 
 // Calculate the total price of items, with received parameter being a list of products
 function getTotalPrice(chosenProducts) {
@@ -102,7 +137,6 @@ function getTotalPrice(chosenProducts) {
 
 
 //-----------Product List------------
-Products
 
 var products = [
     {
@@ -419,5 +453,4 @@ var products = [
         glutenFree: false,
         price: 5.20
     }
-]
-
+];
