@@ -1,5 +1,5 @@
-//Start the app by opening the client page:
-openInfo(event, 'Client')
+// //Start the app by opening the client page:
+// openInfo(event, 'Client')
 
 function openInfo(evt, tabName) {
 
