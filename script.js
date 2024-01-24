@@ -1,3 +1,6 @@
+//Start the app by opening the client page:
+openInfo(event, 'Client')
+
 function openInfo(evt, tabName) {
 
 	content = document.getElementsByClassName("content");
