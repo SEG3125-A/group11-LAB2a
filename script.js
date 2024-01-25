@@ -130,13 +130,13 @@ function restrictListProducts(prods, restriction) {
             product_price.push(prods[j].price);
 		}
 		else if ((restriction == "Organic") && (prods[j].organic == true)){
-			product_names.push(prods[j].price);
+			product_price.push(prods[j].price);
 		}
 		else if ((restriction == "NonOrganic") && (prods[j].organic == false)){
-			product_names.push(prods[j].price);
+			product_price.push(prods[j].price);
 		}
 		else if (restriction == "any"){
-			product_names.push(prods[j].price);
+			product_price.push(prods[j].price);
 		}
 		
 	}
