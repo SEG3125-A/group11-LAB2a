@@ -109,14 +109,14 @@ function restrictListProducts(prods, restriction) {
 			product_names.push(prods[i].name);
             
 		}
-		if ((restriction == "Organic") && (prods[i].organic == true)){
-			product_names.push(prods[i].price);
+		else if ((restriction == "Organic") && (prods[i].organic == true)){
+			product_names.push(prods[i].name);
 		}
 		else if ((restriction == "NonOrganic") && (prods[i].organic == false)){
-			product_names.push(prods[i].price);
+			product_names.push(prods[i].name);
 		}
 		else if (restriction == "any"){
-			product_names.push(prods[i].price);
+			product_names.push(prods[i].name);
 		}
 	}
     for (let j=0; j<products.length; j+=1) {
@@ -129,7 +129,7 @@ function restrictListProducts(prods, restriction) {
 		else if (restriction == "None"){
             product_price.push(prods[j].price);
 		}
-		if ((restriction == "Organic") && (prods[j].organic == true)){
+		else if ((restriction == "Organic") && (prods[j].organic == true)){
 			product_names.push(prods[j].price);
 		}
 		else if ((restriction == "NonOrganic") && (prods[j].organic == false)){
