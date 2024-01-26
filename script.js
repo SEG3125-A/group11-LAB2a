@@ -188,7 +188,7 @@ var products = [
         price: 1.99
     },
     {
-        name: "rye bread",
+        name: "ryeBread",
         vegetarian: true,
         organic: false,
         glutenFree: false,
@@ -202,7 +202,7 @@ var products = [
         price: 10.00
     },
     {
-        name: "raw milk",
+        name: "rawMilk",
         vegetarian: false,
         organic: true,
         glutenFree: true,
