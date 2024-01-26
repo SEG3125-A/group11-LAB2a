@@ -157,17 +157,6 @@ function restrictListProducts(prods, restriction) {
     
 }
 
-//ChatGPT solution
-// function getTotalPrice(chosenProducts) {
-//     var totalPrice = 0;
-//     for (let i = 0; i < chosenProducts.length; i++) {
-//         console.log("chosen products: ", chosenProducts)
-//         totalPrice = totalPrice + chosenProducts[i];
-//     }
-//     console.log("total price", totalPrice)
-//     return totalPrice;
-// }
-
 function getTotalPrice(chosenProducts) {
     let totalPrice = 0;
 
