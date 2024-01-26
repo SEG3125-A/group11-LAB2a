@@ -20,24 +20,29 @@
     <div id="Client" class="content">
         <h3>Client Information</h3>
         <p>Tell us about yourself so that we can tailor our menu to your preferences:</p>
-        Do you have any dietary restrictions?
-        <select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
-            <option value=""></option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="GlutenFree">Gluten Free</option>
-            <option value="Both">Vegetarian and Gluten Free</option>
-            <option value="None">None</option>
-        </select>
+        
+        <div style="border: 1px solid rgb(5, 50, 154); padding: 20px; width: 50%; border-radius: 5px;">
+            Do you have any dietary restrictions?
+            <select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
+                <option value=""></option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="GlutenFree">Gluten Free</option>
+                <option value="Both">Vegetarian and Gluten Free</option>
+                <option value="None">None</option>
+            </select>
+    
+            <br>
+            <br>
+    
+            Organic Preference:
+            <select id="organicSelect" name="organicSelect" onchange="populateListProductChoices('organicSelect', 'displayProduct')">
+                <option value="Any">Any</option>
+                <option value="Organic">Organic</option>
+                <option value="NonOrganic">Non-Organic</option>
+            </select>
 
-        <br>
-        <br>
-
-        Organic Preference:
-        <select id="organicSelect" name="organicSelect" onchange="populateListProductChoices('organicSelect', 'displayProduct')">
-            <option value="Any">Any</option>
-            <option value="Organic">Organic</option>
-            <option value="NonOrganic">Non-Organic</option>
-        </select>
+        </div>
+       
     </div>
 
     <div id="Products" class="content">
