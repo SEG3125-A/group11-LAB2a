@@ -2,7 +2,8 @@ Group number: Group 11
 Group members: 
 - Jaewoon Kim(300069520)
 - Edgar Acosta(300246710)
-- Oleksander Turchyn (300174825) 
+- Oleksander Turchyn (300174825)
+
 Contributions:
 
 Jaewoon Kim 
