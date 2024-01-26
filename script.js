@@ -146,22 +146,46 @@ function restrictListProducts(prods, restriction) {
 		}
 		
 	}
-    for (let k=0; k<15; k+=1){
-            product_concat.push(product_names[k] + "  $" + product_price[k]);
+    for (let k = 0; k < 15; k += 1) {
+        console.log(product_names[k])
+        let chosen = [];
+        //chosen.push([product_names[k],product_price[k]])
+
+        product_concat.push(product_names[k] + " $"+ [product_price[k]]);
     }
-	return product_concat ;
+    return product_concat;
+    
 }
 
-// Calculate the total price of items, with received parameter being a list of products
+//ChatGPT solution
+// function getTotalPrice(chosenProducts) {
+//     var totalPrice = 0;
+//     for (let i = 0; i < chosenProducts.length; i++) {
+//         console.log("chosen products: ", chosenProducts)
+//         totalPrice = totalPrice + chosenProducts[i];
+//     }
+//     console.log("total price", totalPrice)
+//     return totalPrice;
+// }
+
 function getTotalPrice(chosenProducts) {
-	var totalPrice = 0;
-	for (let i=0; i < products.length; i+=1) {
-			if (chosenProducts.indexOf(products[i].name) > -1){
-			totalPrice += products[i].price;
-			}
-	}
-	return totalPrice.toFixed(2);
+    let totalPrice = 0;
+
+    for (let i = 0; i < chosenProducts.length; i++) {
+        // Split each string into an array based on the space character
+        let productComponents = chosenProducts[i].split(' ');
+
+        // Extract the price part and convert it to a number
+        let productPrice = parseFloat(productComponents[1].replace('$', ''));
+
+        // Add the price to the total
+        totalPrice += productPrice;
+    }
+
+    // Return the total price rounded to 2 decimal places
+    return totalPrice.toFixed(2);
 }
+
 
 
 //-----------Product List------------
