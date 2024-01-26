@@ -171,8 +171,10 @@ function getTotalPrice(chosenProducts) {
         totalPrice += productPrice;
     }
 
+    console.log('totalPrice: ' + totalPrice)
+
     // Return the total price rounded to 2 decimal places
-    return totalPrice.toFixed(2);
+    return totalPrice;
 }
 
 
