@@ -124,25 +124,25 @@ function restrictListProducts(prods, restriction) {
 	}
     for (let j=0; j<products.length; j+=1) {
 		if ((restriction == "Vegetarian") && (prods[j].vegetarian == true)){
-            product_price.push(prods[j].price);
+            product_price.push(prods[j].price.toFixed(2));
 		}
 		else if ((restriction == "GlutenFree") && (prods[j].glutenFree == true)){
-            product_price.push(prods[j].price);
+            product_price.push(prods[j].price.toFixed(2));
 		}
 		else if ((restriction == "Both") && (prods[j].vegetarian == true) && (prods[j].glutenFree == true)){
-			product_price.push(prods[i].price);
+			product_price.push(prods[i].price.toFixed(2));
 		}
 		else if (restriction == "None"){
-            product_price.push(prods[j].price);
+            product_price.push(prods[j].price.toFixed(2));
 		}
 		else if ((restriction == "Organic") && (prods[j].organic == true)){
-			product_price.push(prods[j].price);
+			product_price.push(prods[j].price.toFixed(2));
 		}
 		else if ((restriction == "NonOrganic") && (prods[j].organic == false)){
-			product_price.push(prods[j].price);
+			product_price.push(prods[j].price.toFixed(2));
 		}
 		else if (restriction == "any"){
-			product_price.push(prods[j].price);
+			product_price.push(prods[j].price.toFixed(2));
 		}
 		
 	}
@@ -160,7 +160,7 @@ function getTotalPrice(chosenProducts) {
 			totalPrice += products[i].price;
 			}
 	}
-	return totalPrice;
+	return totalPrice.toFixed(2);
 }
 
 
